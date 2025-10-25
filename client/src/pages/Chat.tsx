@@ -74,6 +74,9 @@ export default function Chat() {
     { id: "google/gemini-2.5-pro", name: "Gemini 2.5 Pro", family: "Google" },
     { id: "xai/grok-2-beta", name: "Grok 2", family: "xAI" },
     { id: "deepseek/deepseek-r1", name: "DeepSeek R1", family: "DeepSeek" },
+    { id: "qwen/qwen-2.5-72b", name: "Qwen 2.5 72B", family: "Alibaba" },
+    { id: "manus/manus-1", name: "Manus 1", family: "Manus AI" },
+    { id: "microsoft/copilot-codex", name: "Copilot Codex", family: "Microsoft" },
     { id: "perplexity/llama-3.1-sonar-large-128k-online", name: "Perplexity Sonar", family: "Perplexity" },
   ];
 

@@ -51,3 +51,10 @@
 - [x] Implement message history display
 - [x] Add copy/regenerate/share message actions
 
+
+
+## Chat Interface Updates
+- [x] Add Qwen models to chat interface selector
+- [x] Add Manus model to chat interface selector
+- [x] Add Copilot model to chat interface selector
+
