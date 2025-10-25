@@ -9,6 +9,7 @@ import Docs from "./pages/Docs";
 import Chat from "./pages/Chat";
 
 function Router() {
+  // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
       <Route path={"/"} component={Home} />

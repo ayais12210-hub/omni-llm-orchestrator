@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { trpc } from "@/lib/trpc";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -56,6 +57,8 @@ interface Message {
 
 export default function Chat() {
   const [messages, setMessages] = useState<Message[]>([]);
+  const orchestrateMutation = trpc.orchestrator.orchestrate.useMutation();
+  const classifyIntentMutation = trpc.orchestrator.classifyIntent.useMutation();
   const [input, setInput] = useState("");
   const [selectedModel, setSelectedModel] = useState("auto");
   const [isRecording, setIsRecording] = useState(false);
@@ -101,7 +104,7 @@ export default function Chat() {
   }, [messages]);
 
   const handleSend = async () => {
-    if (!input.trim() || isLoading) return;
+    if (!input.trim()) return;
 
     const userMessage: Message = {
       id: Date.now().toString(),
@@ -111,21 +114,48 @@ export default function Chat() {
     };
 
     setMessages(prev => [...prev, userMessage]);
+    const queryText = input;
     setInput("");
     setIsLoading(true);
 
-    // Simulate AI response
-    setTimeout(() => {
+    try {
+      // Classify intent if in auto mode
+      let detectedIntent = "general";
+      if (selectedModel === "auto") {
+        const intentResult = await classifyIntentMutation.mutateAsync({
+          query: queryText,
+        });
+        detectedIntent = intentResult.intent;
+      }
+
+      // Orchestrate response
+      const result = await orchestrateMutation.mutateAsync({
+        query: queryText,
+        intent: detectedIntent,
+        selectedModel: selectedModel === "auto" ? undefined : selectedModel,
+      });
+
       const aiMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: "assistant",
-        content: "This is a demo response. In production, this would connect to your orchestrator backend and route the query through the appropriate LLM based on intent detection and weighted routing.",
-        model: selectedModel === "auto" ? "openai/gpt-4.1" : selectedModel,
+        content: result.response,
+        model: result.model,
         timestamp: new Date(),
       };
+      
       setMessages(prev => [...prev, aiMessage]);
+    } catch (error) {
+      console.error("Error getting response:", error);
+      const errorMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        role: "assistant",
+        content: "Sorry, I encountered an error processing your request. Please try again.",
+        timestamp: new Date(),
+      };
+      setMessages(prev => [...prev, errorMessage]);
+    } finally {
       setIsLoading(false);
-    }, 1500);
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
