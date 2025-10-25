@@ -205,6 +205,21 @@ models:
     latency_class: medium
     cost_class: medium
 
+  # --- Perplexity ---
+  - id: perplexity/llama-3.1-sonar-large-128k-online
+    family: perplexity
+    name: Sonar Large Online
+    strengths: ["real-time web search", "current events", "fact-checking"]
+    latency_class: medium
+    cost_class: medium
+
+  - id: perplexity/llama-3.1-sonar-small-128k-online
+    family: perplexity
+    name: Sonar Small Online
+    strengths: ["fast web search", "cost-efficient research"]
+    latency_class: low
+    cost_class: low
+
 
 ---
 

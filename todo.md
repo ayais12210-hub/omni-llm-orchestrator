@@ -17,3 +17,11 @@
 - [x] Download section for YAML files and examples
 - [x] Footer with links and credits
 
+
+
+## New Features
+- [x] Add Perplexity to model registry (config.yaml)
+- [x] Add Perplexity to routing configuration
+- [x] Update website to show 12 LLM families instead of 11
+- [x] Add Perplexity badge to supported models section
+

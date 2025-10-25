@@ -59,7 +59,8 @@ export default function Home() {
     { name: "Manus", family: "Manus AI", color: "bg-indigo-500/20 text-indigo-400 border-indigo-500/30" },
     { name: "Copilot", family: "Microsoft", color: "bg-teal-500/20 text-teal-400 border-teal-500/30" },
     { name: "LLaMA", family: "Meta", color: "bg-red-500/20 text-red-400 border-red-500/30" },
-    { name: "Genspark", family: "Genspark", color: "bg-violet-500/20 text-violet-400 border-violet-500/30" }
+    { name: "Genspark", family: "Genspark", color: "bg-violet-500/20 text-violet-400 border-violet-500/30" },
+    { name: "Perplexity", family: "Perplexity", color: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30" }
   ];
 
   const intents = [
@@ -136,13 +137,13 @@ export default function Home() {
             <h1 className="text-5xl md:text-7xl font-bold leading-tight">
               Orchestrate{" "}
               <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
-                11 LLMs
+                12 LLMs
               </span>
               {" "}with Weighted Intelligence
             </h1>
             
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              A production-ready orchestration layer that unifies ChatGPT, Claude, Gemini, Grok, and 7 more frontier models through OpenRouter with intelligent weighted routing and synthesis.
+              A production-ready orchestration layer that unifies ChatGPT, Claude, Gemini, Grok, Perplexity, and 7 more frontier models through OpenRouter with intelligent weighted routing and synthesis.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -163,7 +164,7 @@ export default function Home() {
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12">
               <div className="space-y-1">
-                <div className="text-3xl font-bold text-primary">11</div>
+                <div className="text-3xl font-bold text-primary">12</div>
                 <div className="text-sm text-muted-foreground">LLM Families</div>
               </div>
               <div className="space-y-1">
@@ -211,7 +212,7 @@ export default function Home() {
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-4xl font-bold">Supported Models</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Connect to 11 frontier LLM families through OpenRouter for unified orchestration.
+              Connect to 12 frontier LLM families through OpenRouter for unified orchestration.
             </p>
           </div>
 

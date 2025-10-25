@@ -150,7 +150,7 @@ export default function Docs() {
                     </p>
                     <div className="grid md:grid-cols-3 gap-4 pt-4">
                       <div className="p-4 rounded-lg bg-primary/5 border border-primary/20">
-                        <div className="text-2xl font-bold text-primary mb-1">11</div>
+                        <div className="text-2xl font-bold text-primary mb-1">12</div>
                         <div className="text-sm">LLM Families</div>
                       </div>
                       <div className="p-4 rounded-lg bg-primary/5 border border-primary/20">

@@ -67,19 +67,19 @@ intents:
         rationale: "Creative and fast ideation"
 
   research:
-    description: "Trend scanning, academic research, emerging knowledge, literature review"
+    description: "Trend scanning, academic research, emerging knowledge, literature review, current events"
     models:
+      - id: "perplexity/llama-3.1-sonar-large-128k-online"
+        weight: 0.40
+        rationale: "Real-time web search and current information retrieval"
+      
       - id: "genspark/spark-1"
-        weight: 0.45
+        weight: 0.35
         rationale: "Specialized in trend analysis and emerging knowledge"
       
       - id: "meta-llama/llama-3.1-70b"
-        weight: 0.30
-        rationale: "Strong open research foundation"
-      
-      - id: "anthropic/claude-3.5-haiku"
         weight: 0.25
-        rationale: "Fast literature synthesis and cost-efficient scanning"
+        rationale: "Strong open research foundation"
 
   automation:
     description: "Workflow automation, task scripting, productivity, process optimization"
