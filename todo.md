@@ -63,3 +63,10 @@
 ## Additional Model
 - [x] Add Kimi K2 to chat interface selector
 
+
+
+## Bug Fixes - DOM Errors
+- [x] Fix validateDOMNesting warnings (button inside anchor tags)
+- [x] Fix function component ref warnings in Chat.tsx
+- [x] Ensure proper HTML nesting structure
+

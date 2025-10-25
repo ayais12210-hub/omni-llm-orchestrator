@@ -148,16 +148,14 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/chat">
-                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 group">
+                <a className="inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8 group">
                   Try Chat Interface
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                </a>
               </Link>
-              <button onClick={() => scrollToSection('features')}>
-                <Button size="lg" variant="outline" className="group">
-                  Explore Architecture
-                </Button>
-              </button>
+              <Button size="lg" variant="outline" className="group" onClick={() => scrollToSection('features')}>
+                Explore Architecture
+              </Button>
             </div>
 
             {/* Stats */}
@@ -269,16 +267,14 @@ export default function Home() {
                 Download the routing configuration and start orchestrating multiple LLMs with intelligent weighted synthesis.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                <a href="/routing.yaml" download>
-                  <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
-                    <Download className="w-4 h-4 mr-2" />
-                    Download routing.yaml
-                  </Button>
+                <a href="/routing.yaml" download className="inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring bg-primary text-primary-foreground hover:bg-primary/90 h-11 px-8">
+                  <Download className="w-4 h-4 mr-2" />
+                  Download routing.yaml
                 </a>
                 <Link href="/docs">
-                  <Button size="lg" variant="outline">
+                  <a className="inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring border border-input bg-transparent hover:bg-accent hover:text-accent-foreground h-11 px-8">
                     View Documentation
-                  </Button>
+                  </a>
                 </Link>
               </div>
             </div>
