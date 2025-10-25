@@ -1,0 +1,212 @@
+# Omni-LLM Orchestrator Routing Matrix
+# Last updated: 25 Oct 2025
+# 
+# This file maps user intents to model IDs with weighted scoring.
+# Weights determine trust/priority during synthesis (0.0 - 1.0).
+# Higher weights = more influence in final aggregated output.
+
+default_intent: "general"
+default_synthesiser: "openai/gpt-4.1"
+
+intents:
+
+  coding:
+    description: "Programming, debugging, code generation, software development"
+    models:
+      - id: "openai/gpt-4.1"
+        weight: 0.35
+        rationale: "Strong balanced reasoning and code comprehension"
+      
+      - id: "microsoft/copilot-codex"
+        weight: 0.40
+        rationale: "Specialized code generation and IDE-optimized outputs"
+      
+      - id: "anthropic/claude-3.5-sonnet"
+        weight: 0.25
+        rationale: "Excellent for code review and nuanced explanations"
+
+  trading:
+    description: "Stocks, crypto, quantitative finance, trading strategies, market analysis"
+    models:
+      - id: "deepseek/deepseek-r1"
+        weight: 0.50
+        rationale: "Domain expert in quantitative finance and trading"
+      
+      - id: "qwen/qwen-2.5-72b"
+        weight: 0.30
+        rationale: "Strong mathematical precision for algorithmic trading"
+      
+      - id: "openai/gpt-4.1"
+        weight: 0.20
+        rationale: "Balanced reasoning for strategy synthesis"
+
+  writing:
+    description: "Long-form writing, essays, structured documents, content creation"
+    models:
+      - id: "anthropic/claude-3.5-sonnet"
+        weight: 0.45
+        rationale: "Superior nuanced writing and long-context coherence"
+      
+      - id: "google/gemini-2.5-pro"
+        weight: 0.30
+        rationale: "Broad knowledge base and structured outputs"
+      
+      - id: "openai/gpt-4.1-mini"
+        weight: 0.25
+        rationale: "Fast iteration and cost-efficient drafting"
+
+  humour:
+    description: "Jokes, witty outputs, creative brainstorming, entertainment"
+    models:
+      - id: "xai/grok-2-beta"
+        weight: 0.60
+        rationale: "Specialized in humour and pop-culture references"
+      
+      - id: "google/gemini-2.0-flash"
+        weight: 0.40
+        rationale: "Creative and fast ideation"
+
+  research:
+    description: "Trend scanning, academic research, emerging knowledge, literature review"
+    models:
+      - id: "genspark/spark-1"
+        weight: 0.45
+        rationale: "Specialized in trend analysis and emerging knowledge"
+      
+      - id: "meta-llama/llama-3.1-70b"
+        weight: 0.30
+        rationale: "Strong open research foundation"
+      
+      - id: "anthropic/claude-3.5-haiku"
+        weight: 0.25
+        rationale: "Fast literature synthesis and cost-efficient scanning"
+
+  automation:
+    description: "Workflow automation, task scripting, productivity, process optimization"
+    models:
+      - id: "manus/manus-1"
+        weight: 0.55
+        rationale: "Purpose-built for workflow automation"
+      
+      - id: "openai/gpt-4.1-mini"
+        weight: 0.45
+        rationale: "Fast scripting and task breakdown"
+
+  translation:
+    description: "Language learning, multilingual translation, localization"
+    models:
+      - id: "moonshot/kimi-k2"
+        weight: 0.50
+        rationale: "Expert in Chinese/Asian language depth"
+      
+      - id: "qwen/qwen-2.5-32b"
+        weight: 0.30
+        rationale: "Strong multilingual reasoning"
+      
+      - id: "openai/gpt-4o-mini"
+        weight: 0.20
+        rationale: "Fast multimodal translation support"
+
+  creativity:
+    description: "Artistic ideation, poetry, design, storytelling, creative writing"
+    models:
+      - id: "google/gemini-2.5-pro"
+        weight: 0.40
+        rationale: "Multimodal creative reasoning"
+      
+      - id: "xai/grok-2-beta"
+        weight: 0.35
+        rationale: "Unconventional and witty creative outputs"
+      
+      - id: "anthropic/claude-3.5-sonnet"
+        weight: 0.25
+        rationale: "Polished creative writing and narrative structure"
+
+  mathematics:
+    description: "Mathematical problem-solving, algorithms, quantitative analysis"
+    models:
+      - id: "qwen/qwen-2.5-72b"
+        weight: 0.55
+        rationale: "Specialized mathematical precision"
+      
+      - id: "openai/gpt-4.1"
+        weight: 0.30
+        rationale: "Strong reasoning for complex proofs"
+      
+      - id: "deepseek/deepseek-r1"
+        weight: 0.15
+        rationale: "Quantitative analysis support"
+
+  multimodal:
+    description: "Vision+text integration, image analysis, multimedia understanding"
+    models:
+      - id: "openai/gpt-4o"
+        weight: 0.50
+        rationale: "Native multimodal integration"
+      
+      - id: "google/gemini-2.5-pro"
+        weight: 0.50
+        rationale: "Advanced multimodal reasoning"
+
+  general:
+    description: "Default fallback for any unclassified queries"
+    models:
+      - id: "openai/gpt-4.1"
+        weight: 0.60
+        rationale: "Best all-around balanced reasoning"
+      
+      - id: "anthropic/claude-3.5-sonnet"
+        weight: 0.40
+        rationale: "Strong synthesis and safety alignment"
+
+
+# --- Synthesis Configuration ---
+synthesis:
+  strategy: "weighted_average"
+  # Options: "weighted_average", "consensus", "best_of_n", "ensemble"
+  
+  conflict_resolution: "neutral_presentation"
+  # How to handle contradictions: "neutral_presentation", "majority_vote", "highest_weight_wins"
+  
+  attribution: true
+  # Whether to include which models contributed to final answer
+  
+  min_confidence_threshold: 0.3
+  # Minimum weight to include a model's output in synthesis
+
+
+# --- Performance Optimization ---
+optimization:
+  max_parallel_calls: 3
+  # Maximum number of models to call simultaneously per intent
+  
+  timeout_seconds: 30
+  # Maximum wait time for model responses
+  
+  fallback_on_failure: true
+  # Whether to use fallback models if primary fails
+  
+  cache_responses: true
+  # Cache identical queries for cost optimization
+
+
+# --- Cost Control ---
+cost_control:
+  prefer_lower_cost: false
+  # When true, prioritize lower-cost models within same intent
+  
+  budget_aware_routing: false
+  # When true, dynamically adjust model selection based on budget
+  
+  cost_weight_multiplier: 1.0
+  # Adjust influence of cost in model selection (0.0 - 2.0)
+
+
+# --- Monitoring ---
+monitoring:
+  log_intent_classification: true
+  log_model_selection: true
+  log_synthesis_process: true
+  track_model_performance: true
+  # Enable performance tracking for continuous improvement
+

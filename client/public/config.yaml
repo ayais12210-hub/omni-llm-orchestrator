@@ -1,0 +1,239 @@
+# Omni-LLM Orchestrator Config
+# Last updated: 25 Oct 2025
+
+default_synthesiser: "openai/gpt-4.1"
+
+models:
+
+  # --- OpenAI ---
+  - id: openai/gpt-4.1
+    family: chatgpt
+    name: GPT-4.1
+    strengths: ["balanced reasoning", "coding", "memory scaffolding"]
+    latency_class: medium
+    cost_class: high
+
+  - id: openai/gpt-4.1-mini
+    family: chatgpt
+    name: GPT-4.1 Mini
+    strengths: ["fast responses", "cheap cost", "lightweight reasoning"]
+    latency_class: low
+    cost_class: low
+
+  - id: openai/gpt-4o
+    family: chatgpt
+    name: GPT-4o
+    strengths: ["multimodal", "vision+text integration"]
+    latency_class: medium
+    cost_class: high
+
+  - id: openai/gpt-4o-mini
+    family: chatgpt
+    name: GPT-4o Mini
+    strengths: ["fast multimodal", "cost efficient"]
+    latency_class: low
+    cost_class: medium
+
+  - id: openai/gpt-3.5
+    family: chatgpt
+    name: GPT-3.5
+    strengths: ["legacy support", "cheap"]
+    latency_class: low
+    cost_class: low
+
+  # --- Anthropic (Claude) ---
+  - id: anthropic/claude-3.5-sonnet
+    family: claude
+    name: Claude 3.5 Sonnet
+    strengths: ["long context", "nuanced writing", "safe synthesis"]
+    latency_class: medium
+    cost_class: high
+
+  - id: anthropic/claude-3.5-opus
+    family: claude
+    name: Claude 3.5 Opus
+    strengths: ["deep reasoning", "highest capability"]
+    latency_class: high
+    cost_class: very_high
+
+  - id: anthropic/claude-3.5-haiku
+    family: claude
+    name: Claude 3.5 Haiku
+    strengths: ["fast", "cost-efficient"]
+    latency_class: low
+    cost_class: medium
+
+  # --- Google (Gemini) ---
+  - id: google/gemini-2.5-pro
+    family: gemini
+    name: Gemini 2.5 Pro
+    strengths: ["multimodal reasoning", "breadth of knowledge"]
+    latency_class: medium
+    cost_class: high
+
+  - id: google/gemini-2.0-flash
+    family: gemini
+    name: Gemini 2.0 Flash
+    strengths: ["fast", "low cost"]
+    latency_class: low
+    cost_class: medium
+
+  - id: google/gemini-2.0-ultra
+    family: gemini
+    name: Gemini 2.0 Ultra
+    strengths: ["deep reasoning", "advanced multimodal"]
+    latency_class: high
+    cost_class: very_high
+
+  # --- xAI (Grok) ---
+  - id: xai/grok-2-beta
+    family: grok
+    name: Grok 2 Beta
+    strengths: ["humour", "pop culture", "creative"]
+    latency_class: medium
+    cost_class: medium
+
+  - id: xai/grok-1
+    family: grok
+    name: Grok 1
+    strengths: ["creative brainstorming", "funny outputs"]
+    latency_class: low
+    cost_class: low
+
+  # --- Manus ---
+  - id: manus/manus-1
+    family: manus
+    name: Manus 1
+    strengths: ["workflow automation", "productivity scripts"]
+    latency_class: medium
+    cost_class: medium
+
+  # --- Moonshot (Kimi K2) ---
+  - id: moonshot/kimi-k2
+    family: kimi
+    name: Kimi K2
+    strengths: ["Chinese reasoning", "translation", "Asian language depth"]
+    latency_class: medium
+    cost_class: medium
+
+  - id: moonshot/kimi-1
+    family: kimi
+    name: Kimi 1
+    strengths: ["legacy Chinese support"]
+    latency_class: low
+    cost_class: low
+
+  # --- Alibaba (Qwen) ---
+  - id: qwen/qwen-2.5-72b
+    family: qwen
+    name: Qwen 2.5 72B
+    strengths: ["math", "algorithms", "precision"]
+    latency_class: high
+    cost_class: high
+
+  - id: qwen/qwen-2.5-32b
+    family: qwen
+    name: Qwen 2.5 32B
+    strengths: ["balanced reasoning", "mid-tier compute"]
+    latency_class: medium
+    cost_class: medium
+
+  - id: qwen/qwen-2.5-14b
+    family: qwen
+    name: Qwen 2.5 14B
+    strengths: ["efficient", "faster reasoning"]
+    latency_class: low
+    cost_class: medium
+
+  - id: qwen/qwen-2.5-7b
+    family: qwen
+    name: Qwen 2.5 7B
+    strengths: ["lightweight tasks"]
+    latency_class: low
+    cost_class: low
+
+  # --- DeepSeek ---
+  - id: deepseek/deepseek-r1
+    family: deepseek
+    name: DeepSeek R1
+    strengths: ["quantitative finance", "crypto", "trading"]
+    latency_class: medium
+    cost_class: medium
+
+  - id: deepseek/deepseek-v2
+    family: deepseek
+    name: DeepSeek V2
+    strengths: ["legacy trading", "faster"]
+    latency_class: low
+    cost_class: low
+
+  # --- Microsoft (Copilot) ---
+  - id: microsoft/copilot-codex
+    family: copilot
+    name: Copilot Codex
+    strengths: ["code generation", "debugging", "IDE integration"]
+    latency_class: medium
+    cost_class: medium
+
+  - id: microsoft/copilot-llama
+    family: copilot
+    name: Copilot LLaMA
+    strengths: ["general coding assistance", "light tasks"]
+    latency_class: low
+    cost_class: medium
+
+  # --- Meta (LLaMA) ---
+  - id: meta-llama/llama-3.1-70b
+    family: meta
+    name: LLaMA 3.1 70B
+    strengths: ["research", "open model", "reasoning"]
+    latency_class: high
+    cost_class: medium
+
+  - id: meta-llama/llama-3.1-8b
+    family: meta
+    name: LLaMA 3.1 8B
+    strengths: ["faster", "lightweight research"]
+    latency_class: low
+    cost_class: low
+
+  # --- Genspark ---
+  - id: genspark/spark-1
+    family: genspark
+    name: Spark 1
+    strengths: ["research", "trend analysis", "emerging knowledge"]
+    latency_class: medium
+    cost_class: medium
+
+
+---
+
+🔑 How to Use
+
+1. Load at startup
+
+import yaml from "js-yaml";
+import fs from "fs";
+
+const config = yaml.load(fs.readFileSync("config.yaml", "utf8"));
+
+
+2. Router reads from config
+
+Use family for intent mapping (e.g., trading → deepseek/qwen).
+
+Use latency_class + cost_class for optimisation rules.
+
+
+
+3. Hot updates
+
+When OpenRouter exposes new models, just update config.yaml without touching core code.
+
+
+
+
+
+---
+
+⚡ Would you like me to also generate a dynamic intent-to-model mapping file (routing.yaml) that automatically links categories (coding, trading, humour, etc.) → model IDs from this config, so you can update routing logic without editing code?
