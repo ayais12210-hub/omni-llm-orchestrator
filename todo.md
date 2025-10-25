@@ -58,3 +58,8 @@
 - [x] Add Manus model to chat interface selector
 - [x] Add Copilot model to chat interface selector
 
+
+
+## Additional Model
+- [x] Add Kimi K2 to chat interface selector
+
