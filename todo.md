@@ -25,3 +25,29 @@
 - [x] Update website to show 12 LLM families instead of 11
 - [x] Add Perplexity badge to supported models section
 
+
+
+## Bug Fixes
+- [ ] Check and fix all TypeScript errors
+- [ ] Check and fix all build errors
+- [ ] Verify all routes and links work correctly
+- [ ] Test YAML file downloads
+- [ ] Ensure all components render properly
+
+
+
+## Chat Interface Features
+- [x] Create professional chat interface component
+- [x] Add model selector dropdown with "Auto" as default
+- [x] Implement auto model selection based on intent detection
+- [x] Add file upload functionality (camera, photos, files, audio, video)
+- [x] Add voice input (STT - Speech-to-Text)
+- [x] Add voice output (TTS - Text-to-Speech)
+- [x] Add smart suggestion chips
+- [x] Add response style selector (Normal, Learning, Concise, Explanatory, Formal)
+- [x] Add extended thinking mode toggle
+- [x] Add web search toggle
+- [x] Create new /chat route for interactive chat
+- [x] Implement message history display
+- [x] Add copy/regenerate/share message actions
+

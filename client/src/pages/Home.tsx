@@ -147,18 +147,17 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button onClick={() => scrollToSection('features')}>
+              <Link href="/chat">
                 <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 group">
-                  Explore Architecture
+                  Try Chat Interface
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
-              </button>
-              <a href="/routing.yaml" download>
+              </Link>
+              <button onClick={() => scrollToSection('features')}>
                 <Button size="lg" variant="outline" className="group">
-                  <Download className="w-4 h-4 mr-2" />
-                  Download Config
+                  Explore Architecture
                 </Button>
-              </a>
+              </button>
             </div>
 
             {/* Stats */}
